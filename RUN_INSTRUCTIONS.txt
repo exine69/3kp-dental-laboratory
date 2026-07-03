@@ -1,0 +1,37 @@
+# How to Run 3KP Dental Laboratory
+
+You need to open **TWO** separate terminal/command prompt windows to run both the Frontend and the Backend at the same time.
+
+---
+
+## 1. Running the Backend (Server)
+
+1. Open a new terminal.
+2. Navigate to the `backend` folder inside your project. Type:
+   cd "backend"
+3. Run the start command:
+   npm start
+
+(This will run `node server.js` and start your backend server connected to the database).
+
+---
+
+## 2. Running the Frontend (React App)
+
+1. Open a second, separate terminal window.
+2. Make sure you are in the `3kp-dental` folder (not the backend folder). If you need to go back, you can type `cd ..` or just open a fresh terminal in `3kp-dental`.
+3. Run the development command:
+   npm run dev
+
+(This will start your React application, usually accessible at http://localhost:5173).
+
+---
+
+## 3. Database (XAMPP / MySQL)
+
+Before running the backend, make sure you have XAMPP (or your MySQL server) running:
+1. Open the XAMPP Control Panel.
+2. Start the **Apache** and **MySQL** modules.
+3. Make sure the database (`3kp_dental_laboratory`) is imported in phpMyAdmin from your `database/3kp_dental_laboratory.sql` file.
+
+Enjoy coding!
