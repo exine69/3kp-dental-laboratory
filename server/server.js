@@ -70,7 +70,7 @@ app.post('/api/auth/signup', async (req, res) => {
     }
 
     const [result] = await pool.query(
-      'INSERT INTO users (username, name, email, phone, password_hash, role) VALUES (?, ?, ?, ?, SHA2(?, 256), "user")',
+      'INSERT INTO users (username, name, email, phone, password_hash, role) VALUES (?, ?, ?, ?, SHA2(?, 256), \'user\')',
       [uname, name.trim(), email.trim().toLowerCase(), phone.trim(), password]
     );
     
