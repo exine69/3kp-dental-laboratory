@@ -84,7 +84,7 @@ app.post('/api/auth/signup', async (req, res) => {
 // --- APPOINTMENTS API ---
 app.get('/api/appointments', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT *, customer_name AS name, DATE_FORMAT(appointment_date, "%Y-%m-%d") AS date, time_slot AS time FROM appointments ORDER BY appointment_date DESC, id DESC');
+    const [rows] = await pool.query('SELECT *, customer_name AS name, DATE_FORMAT(appointment_date, \'%Y-%m-%d\') AS date, time_slot AS time FROM appointments ORDER BY appointment_date DESC, id DESC');
     res.json(rows);
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
@@ -97,7 +97,7 @@ app.get('/api/appointments/booked-slots', async (req, res) => {
   if (!date) return res.json([]);
   try {
     const [rows] = await pool.query(
-      'SELECT time_slot FROM appointments WHERE DATE_FORMAT(appointment_date, "%Y-%m-%d") = ? AND status != "Cancelled"',
+      'SELECT time_slot FROM appointments WHERE DATE_FORMAT(appointment_date, \'%Y-%m-%d\') = ? AND status != \'Cancelled\'',
       [date]
     );
     res.json(rows.map(r => r.time_slot));
@@ -112,7 +112,7 @@ app.post('/api/appointments', async (req, res) => {
   // Check for double booking
   try {
     const [existing] = await pool.query(
-      'SELECT id FROM appointments WHERE DATE_FORMAT(appointment_date, "%Y-%m-%d") = ? AND time_slot = ? AND status != "Cancelled"',
+      'SELECT id FROM appointments WHERE DATE_FORMAT(appointment_date, \'%Y-%m-%d\') = ? AND time_slot = ? AND status != \'Cancelled\'',
       [appointment_date, time_slot]
     );
     if (existing.length > 0) {
