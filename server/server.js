@@ -107,7 +107,7 @@ app.get('/api/appointments/booked-slots', async (req, res) => {
 });
 
 app.post('/api/appointments', async (req, res) => {
-  const { public_id, customer_name, service, appointment_date, time_slot, email, contact, clinic, notes, user_id, status } = req.body;
+  const { public_id, customer_name, service, appointment_date, time_slot, contact, clinic, notes, user_id, status } = req.body;
   
   // Check for double booking
   try {
@@ -120,8 +120,8 @@ app.post('/api/appointments', async (req, res) => {
     }
 
     const [result] = await pool.query(
-      'INSERT INTO appointments (public_id, customer_name, service, appointment_date, time_slot, email, contact, clinic, notes, user_id, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [public_id, customer_name, service, appointment_date, time_slot, email || null, contact || null, clinic || null, notes || null, user_id || null, status || 'Pending']
+      'INSERT INTO appointments (public_id, customer_name, service, appointment_date, time_slot, contact, clinic, notes, user_id, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [public_id, customer_name, service, appointment_date, time_slot, contact || null, clinic || null, notes || null, user_id || null, status || 'Pending']
     );
     res.json({ success: true, id: result.insertId });
   } catch (error) {
