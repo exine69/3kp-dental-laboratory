@@ -1,12 +1,12 @@
 import { Link } from "react-router";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal.js";
 
-import completeDenture from "../assets/products/complete-denture.jpg";
-import partialDenture from "../assets/products/partial-denture.jpg";
-import flexiblePartial from "../assets/products/flexible-partial.jpg";
-import immediateDenture from "../assets/products/immediatedenture.jpg";
-import overdenture from "../assets/products/Overdenture.jpg";
-import premiumDenture from "../assets/products/premiumdenture.png";
+import completeDenture from "../assets/Products/complete-denture.jpg";
+import partialDenture from "../assets/Products/partial-denture.jpg";
+import flexiblePartial from "../assets/Products/flexible-partial.jpg";
+import immediateDenture from "../assets/Products/immediatedenture.jpg";
+import overdenture from "../assets/Products/Overdenture.jpg";
+import premiumDenture from "../assets/Products/premiumdenture.png";
 
 const products = [
   {
