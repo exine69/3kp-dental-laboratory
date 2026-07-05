@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://threekp-dental-laboratory.onrender.com/api/$1" }
+  ]
+}
