@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useScrollReveal, useStaggerReveal } from "../hooks/useScrollReveal.js";
 import { useAuth } from "../context/AuthContext.jsx";
 
-import facebookLogo from "../assets/socials/facebook.png";
-import phoneLogo from "../assets/socials/phone.png";
-import gmailLogo from "../assets/socials/gmail.png";
+import facebookLogo from "../assets/Socials/facebook.png";
+import phoneLogo from "../assets/Socials/phone.png";
+import gmailLogo from "../assets/Socials/gmail.png";
 
 export default function Contact() {
   const headerRef = useScrollReveal({ animation: "fade-in-up" });
